@@ -1,6 +1,33 @@
 import { useState, useEffect } from "react";
 import styles from "@/styles/Main.module.css";
 
+type Link = {
+  createdAt: string;
+  description: string;
+  id: number;
+  imageSource: string;
+  title: string;
+  url: string;
+};
+
+type Owner = {
+  id: number;
+  name: string;
+  profileImageSource: string;
+};
+
+type Folder = {
+  count: number;
+  id: number;
+  links: Link[];
+  name: string;
+  owner: Owner;
+};
+
+type FolderResponse = {
+  folder: Folder;
+};
+
 function Main() {
   const [folderData, setFolderData] = useState({
     userName: "",
@@ -16,7 +43,7 @@ function Main() {
         }
         return response.json();
       })
-      .then((data) => {
+      .then((data: FolderResponse) => {
         setFolderData({
           userName: data.folder.owner.name,
           folderName: data.folder.name,

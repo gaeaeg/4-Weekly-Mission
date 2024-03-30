@@ -23,6 +23,15 @@ interface FolderCardListProps {
   folders: Folder[];
 }
 
+export type Link = {
+  created_at: string;
+  description: string;
+  id: number;
+  imageSource: string;
+  title: string;
+  url: string;
+};
+
 const defaultCardImg = "img/card_default.png";
 
 function handleImageError(event: any) {
@@ -42,7 +51,7 @@ function FolderCardList({ folders }: FolderCardListProps) {
         throw new Error("네트워크 응답이 올바르지 않습니다.");
       }
       const data = await response.json();
-      const processedData: FolderCardData[] = data.data.map((link: any) => ({
+      const processedData: FolderCardData[] = data.data.map((link: Link) => ({
         ...link,
         timePassed: timeCalculate(link.created_at),
         getDate: getDateText(new Date(link.created_at)),
