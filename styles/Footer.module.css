@@ -1,0 +1,68 @@
+.Footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 16rem;
+  margin-top: 12rem;
+  padding: 3.2rem 10.4rem 6.4rem;
+  background-color: var(--The-julge-black);
+}
+
+.footerContainer {
+  display: flex;
+  width: 100%;
+  max-width: 192rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.copyright {
+  color: var(--footer-copyright);
+  text-align: center;
+  font-family: Arial;
+  font-size: 1.6rem;
+}
+
+.footerLink {
+  display: flex;
+  width: 18rem;
+  gap: 3rem;
+}
+
+.footerLink a {
+  color: var(--footer-link);
+  font-family: Acme;
+  font-size: 1.6rem;
+  font-family: Arial;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.footerSns {
+  display: flex;
+  height: 2rem;
+  gap: 1.2rem;
+}
+
+/* 모바일 화면 */
+@media (min-width: 375px) and (max-width: 767px) {
+  .Footer {
+    margin-top: 4rem;
+    padding: 3.2rem;
+  }
+
+  .copyright {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .footerContainer {
+    position: relative;
+    justify-content: space-between;
+  }
+
+  .footerLink {
+    margin-bottom: 6rem;
+  }
+}
