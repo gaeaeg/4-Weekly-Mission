@@ -1,4 +1,4 @@
-import Link from "@/node_modules/next/link";
+import Link from "next/link";
 import FolderProfile from "./FolderProfile";
 import styles from "@/styles/Header.module.css";
 

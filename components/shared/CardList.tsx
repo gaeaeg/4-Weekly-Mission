@@ -1,5 +1,5 @@
 import { useCardsData } from "./Card";
-import Link from "@/node_modules/next/link";
+import Link from "next/link";
 import styles from "@/styles/CardList.module.css";
 
 const defaultCardImg = "img/card_default.png";

@@ -7,9 +7,11 @@ export default function Home() {
       <Link href="/shared">
         <button className={styles.linkPageButton}>Shared Page</button>
       </Link>
-
       <Link href="/folder">
         <button className={styles.linkPageButton}>Folder Page</button>
+      </Link>
+      <Link href="/signin">
+        <button className={styles.linkPageButton}>Signin Page</button>
       </Link>
     </div>
   );

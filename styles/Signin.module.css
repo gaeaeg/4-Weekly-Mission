@@ -1,0 +1,8 @@
+.signinContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  background-color: var(--Linkbrary-bg);
+}

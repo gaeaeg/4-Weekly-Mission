@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { timeCalculate, getDateText } from "@/utils/timeCalc";
-import Link from "@/node_modules/next/link";
+import Link from "next/link";
 import styles from "@/styles/FolderCardList.module.css";
 
 interface FolderCardData {
