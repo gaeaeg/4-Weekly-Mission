@@ -16,6 +16,12 @@
   margin-top: 2.4rem;
 }
 
+.passwordInputContainer {
+  position: relative;
+  display: flex;
+  align-items: center; /* 중앙 정렬 */
+}
+
 .signLabel {
   margin-bottom: 1.2rem;
   color: var(--Black);
@@ -37,16 +43,8 @@
   outline: 0.1rem solid var(--Linkbrary-primary-color);
 }
 
-.signInput.error-focus:focus {
-  outline: none;
-}
-
 .passwordToggle {
   position: relative;
-}
-
-.passwordInput {
-  width: 100%;
 }
 
 .errorMessage {
@@ -60,8 +58,7 @@
   border: 0.1rem solid var(--Linkbrary-red);
 }
 
-.eyeOff,
-.eyeOn {
+.eyeButton {
   position: absolute;
   top: 50%;
   right: 1.5rem;
@@ -69,15 +66,7 @@
   height: 1.6rem;
   border: none;
   cursor: pointer;
-  /* transform: translateY(-50%); */
-}
-
-.show {
-  display: block;
-}
-
-.hide {
-  display: none;
+  transform: translateY(-50%);
 }
 
 .buttonLogin {
