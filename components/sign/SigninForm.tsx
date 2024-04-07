@@ -8,7 +8,7 @@ interface SigninFormData {
   password: string;
 }
 
-function SignupForm() {
+function SigninForm() {
   const [formData, setFormData] = useState<SigninFormData>({ email: "", password: "" });
   const [emailError, setEmailError] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
@@ -139,4 +139,4 @@ function SignupForm() {
   );
 }
 
-export default SignupForm;
+export default SigninForm;
