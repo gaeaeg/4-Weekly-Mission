@@ -35,8 +35,25 @@ function SignupForm() {
       setEmailError("올바른 이메일 주소가 아닙니다.");
       return false;
     }
-    setEmailError("");
+    checkEmail(formData.email);
     return true;
+  }
+
+  async function checkEmail(email: string) {
+    try {
+      const response = await fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+      if (response.status === 409) {
+        setEmailError("이미 사용 중인 이메일입니다.");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   function handlePassword() {
@@ -84,6 +101,37 @@ function SignupForm() {
 
     if (!isEmailValid || !isPasswordValid) {
       return;
+    }
+
+    try {
+      const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        localStorage.setItem("accessToken", data.accessToken);
+        router.push("/folder");
+      } else {
+        if (data.error && data.error.includes("Email")) {
+          setEmailError("올바른 이메일 주소가 아닙니다.");
+        }
+        if (data.error && data.error.includes("Password")) {
+          setPasswordError("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+        }
+        if (data.error && data.error.includes("PasswordConfirm")) {
+          setPasswordConfirmError("비밀번호가 일치하지 않아요.");
+        }
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
