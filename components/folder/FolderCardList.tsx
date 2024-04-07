@@ -69,7 +69,11 @@ function FolderCardList({ folders }: FolderCardListProps) {
   }, []);
 
   useEffect(() => {
-    const filteredData = searchTerm ? originalData.filter((card) => card.url.includes(searchTerm) || card.title?.toLowerCase().includes(searchTerm.toLowerCase()) || card.description?.toLowerCase().includes(searchTerm.toLowerCase())) : originalData;
+    const filteredData = searchTerm
+      ? originalData.filter(
+          (card) => card.url.includes(searchTerm) || card.title?.toLowerCase().includes(searchTerm.toLowerCase()) || card.description?.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      : originalData;
     setLinkData(filteredData);
   }, [searchTerm, originalData]);
 
