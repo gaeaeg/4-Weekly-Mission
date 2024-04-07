@@ -1,0 +1,87 @@
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emailContainer,
+.passwordContainer {
+  display: flex;
+  flex-direction: column;
+  width: 40rem;
+}
+
+.passwordContainer {
+  position: relative;
+  margin-top: 2.4rem;
+}
+
+.passwordInput {
+  position: relative;
+}
+
+.signLabel {
+  margin-bottom: 1.2rem;
+  color: var(--Black);
+  font-size: 1.4rem;
+}
+
+.signInput {
+  display: flex;
+  width: 100%;
+  padding: 1.8rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--Linkbrary-gray20);
+  background: var(--Linkbrary-white);
+  font-size: 1.6rem;
+}
+
+.signInput:focus {
+  outline: 0.1rem solid var(--Linkbrary-primary-color);
+}
+
+.passwordToggle {
+  position: relative;
+}
+
+.errorMessage {
+  margin-top: 0.6rem;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  color: var(--Linkbrary-red);
+}
+
+.signInputError {
+  border: 0.1rem solid var(--Linkbrary-red);
+}
+
+.eyeButton {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.buttonLogin {
+  display: flex;
+  width: 40rem;
+  padding: 1.6rem 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3.2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border: none;
+  border-radius: 0.8rem;
+  background: var(--gra-purpleblue-to-skyblue);
+  color: var(--Grey-Light);
+  font-size: 1.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
