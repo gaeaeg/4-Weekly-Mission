@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { isValidEmail } from "./sign";
-import styles from "@/styles/LoginForm.module.css";
+import styles from "@/styles/SigninForm.module.css";
 
-interface LoginFormData {
+interface SigninFormData {
   email: string;
   password: string;
 }
 
-function LoginForm() {
-  const [formData, setFormData] = useState<LoginFormData>({ email: "", password: "" });
+function SignupForm() {
+  const [formData, setFormData] = useState<SigninFormData>({ email: "", password: "" });
   const [emailError, setEmailError] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
   const [emailFocus, setEmailFocus] = useState<boolean>(false);
@@ -26,7 +26,8 @@ function LoginForm() {
     if (!formData.email) {
       setEmailError("이메일을 입력해 주세요.");
       return false;
-    } else if (!isValidEmail(formData.email)) {
+    }
+    if (!isValidEmail(formData.email)) {
       setEmailError("올바른 이메일 주소가 아닙니다.");
       return false;
     }
@@ -47,18 +48,8 @@ function LoginForm() {
     setEmailFocus(true);
   }
 
-  function handleEmailBlur() {
-    handleEmail();
-    setEmailFocus(false);
-  }
-
   function handlePasswordFocus() {
     setPasswordFocus(true);
-  }
-
-  function handlePasswordBlur() {
-    handlePassword();
-    setPasswordFocus(false);
   }
 
   function togglePasswordVisibility() {
@@ -106,17 +97,39 @@ function LoginForm() {
         <label htmlFor="email" className={styles.signLabel}>
           이메일
         </label>
-        <input id="email" name="email" type="email" className={`${styles.signInput} ${emailError && !emailFocus ? styles.signInputError : ""}`} value={formData.email} onChange={handleChange} onFocus={handleEmailFocus} onBlur={handleEmailBlur} />
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="이메일을 입력해주세요."
+          className={`${styles.signInput} ${emailError ? styles.signInputError : ""}`}
+          value={formData.email}
+          onChange={handleChange}
+          onFocus={handleEmailFocus}
+          onBlur={handleEmail}
+        />
         {emailError && <div className={styles.errorMessage}>{emailError}</div>}
       </div>
       <div className={styles.passwordContainer}>
         <label htmlFor="password" className={styles.signLabel}>
           비밀번호
         </label>
-        <input id="password" name="password" type={isPasswordVisible ? "text" : "password"} className={`${styles.signInput} ${passwordError && !passwordFocus ? styles.signInputError : ""}`} value={formData.password} onChange={handleChange} onFocus={handlePasswordFocus} onBlur={handlePasswordBlur} />
-        <button className={styles.eyeButton} type="button" onClick={togglePasswordVisibility}>
-          {isPasswordVisible ? <img src="/img/eye-on.svg" alt="Hide password" /> : <img src="/img/eye-off.svg" alt="Show password" />}
-        </button>
+        <div className={styles.passwordInput}>
+          <input
+            id="password"
+            name="password"
+            type={isPasswordVisible ? "text" : "password"}
+            placeholder="비밀번호를 입력해 주세요."
+            className={`${styles.signInput} ${passwordError ? styles.signInputError : ""}`}
+            value={formData.password}
+            onChange={handleChange}
+            onFocus={handlePasswordFocus}
+            onBlur={handlePassword}
+          />
+          <button className={styles.eyeButton} type="button" onClick={togglePasswordVisibility}>
+            {isPasswordVisible ? <img src="/img/eye-on.svg" alt="Hide password" /> : <img src="/img/eye-off.svg" alt="Show password" />}
+          </button>
+        </div>
         {passwordError && <div className={styles.errorMessage}>{passwordError}</div>}
       </div>
       <button className={styles.buttonLogin} type="submit">
@@ -126,4 +139,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default SignupForm;

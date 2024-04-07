@@ -16,10 +16,8 @@
   margin-top: 2.4rem;
 }
 
-.passwordInputContainer {
+.passwordInput {
   position: relative;
-  display: flex;
-  align-items: center; /* 중앙 정렬 */
 }
 
 .signLabel {
@@ -30,6 +28,7 @@
 
 .signInput {
   display: flex;
+  width: 100%;
   padding: 1.8rem 1.5rem;
   justify-content: center;
   align-items: center;
@@ -84,4 +83,5 @@
   color: var(--Grey-Light);
   font-size: 1.8rem;
   font-weight: 600;
+  cursor: pointer;
 }
