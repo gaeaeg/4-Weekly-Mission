@@ -36,6 +36,7 @@ function SignupForm() {
       return false;
     }
     checkEmail(formData.email);
+    setEmailError("");
     return true;
   }
 
