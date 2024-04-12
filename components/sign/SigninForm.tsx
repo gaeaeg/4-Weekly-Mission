@@ -46,10 +46,12 @@ function SigninForm() {
 
   function handleEmailFocus() {
     setEmailFocus(true);
+    setEmailError("");
   }
 
   function handlePasswordFocus() {
     setPasswordFocus(true);
+    setPasswordError("");
   }
 
   function togglePasswordVisibility() {
@@ -75,6 +77,7 @@ function SigninForm() {
       });
 
       const data = await response.json();
+      console.log(data);
       if (response.ok) {
         localStorage.setItem("accessToken", data.accessToken);
         router.push("/folder");

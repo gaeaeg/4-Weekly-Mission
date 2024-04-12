@@ -77,14 +77,17 @@ function SignupForm() {
 
   function handleEmailFocus() {
     setEmailFocus(true);
+    setEmailError("");
   }
 
   function handlePasswordFocus() {
     setPasswordFocus(true);
+    setPasswordError("");
   }
 
   function handlePasswordConfirmFocus() {
     setPasswordConFirmFocus(true);
+    setPasswordConfirmError("");
   }
 
   function togglePasswordVisibility() {
